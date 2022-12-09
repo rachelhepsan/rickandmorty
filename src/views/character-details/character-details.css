@@ -1,0 +1,23 @@
+.details-container {
+    margin-left: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+
+img {
+    border-radius: 10px;
+    height: 300px;
+}
+
+ul {
+    margin-top: 15px;
+    list-style: none;
+    color: white;
+}
+
+
+li {
+    font-size: 30px;
+    line-height: 35px;
+}

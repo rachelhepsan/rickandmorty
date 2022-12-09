@@ -1,19 +1,30 @@
 <script setup>
+import { computed } from '@vue/reactivity';
+
+const props = defineProps({
+    data: Object
+})
+
+const data = computed(() => props.data);
+
+const characterRoute = { name: 'character-details', params: { characterId: data.value.id } }
 
 </script>
 
 <template>
     <article>
         <div>
-            <img src="https://rickandmortyapi.com/api/character/avatar/304.jpeg" alt="Scary Brandon">
+            <img :src="data.image" alt="Scary Brandon">
         </div>
         <div class="details-character">
             <div>
-                <h2>Scary Brandon</h2>
-                <p class="status"> <span class="alive-status"></span> Alive - Mythological Creature</p>
+                <RouterLink :to="characterRoute">
+                    <h2>{{ data.name }}</h2>
+                </RouterLink>
+                <p class="status"> <span class="alive-status"></span> {{ data.status }} - {{ data.species }}</p>
             </div>
             <div>
-                <p class="place=seen"><span class="grey-text">Last Seen:</span>Mr. Goldenfold's dream</p>
+                <p class="place-seen"><span class="grey-text">Last Seen:</span>Mr. Goldenfold's dream</p>
             </div>
             <div>
                 <p><span class="grey-text">First Seen:</span>Lawnmower Dog</p>
@@ -23,7 +34,7 @@
 </template>
 
 <style scoped>
-article{
+article {
     display: flex;
     width: 600px;
     height: 220px;
@@ -34,18 +45,27 @@ article{
     color: #fff;
 }
 
-.details-character{
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: yellow;
+}
+
+.details-character {
     display: flex;
     flex-direction: column;
     color: #fff;
     padding-left: 1rem;
 }
 
-h2{
+h2 {
     font-size: 2rem;
 }
 
-.alive-status{
+.alive-status {
     height: 0.5rem;
     width: 0.5rem;
     margin: 0.375rem;
@@ -57,7 +77,7 @@ h2{
     display: flex;
 }
 
-.grey-text{
+.grey-text {
     color: rgb(158, 158, 158);
 }
 

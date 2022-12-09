@@ -4,9 +4,7 @@ import DefaultLayout from '@/layouts/DefaultLayout.vue'
 </script>
 
 <template>
-  <div>
+  <DefaultLayout>
     <RouterView />
-  </div>
-
-
+  </DefaultLayout>
 </template>
