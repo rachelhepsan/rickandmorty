@@ -37,7 +37,7 @@ const characterRoute = { name: 'character-details', params: { characterId: data.
 article {
     display: flex;
     width: 600px;
-    height: 220px;
+    height: 22npm0px;
     overflow: hidden;
     background: rgb(60, 62, 68);
     border-radius: 0.5rem;
