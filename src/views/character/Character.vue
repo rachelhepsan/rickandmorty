@@ -1,26 +1,50 @@
 <script setup>
 import CharacterArticleVue from '@/components/CharacterArticle.vue';
-import data from '@/data.json';
-import { onMounted } from 'vue';
+import { onMounted, watch } from 'vue';
 import state from './characterState';
+import { getCharacters } from './characterServices';
+
+watch(() => state.searchKey, (newValue, oldValue) => {
+    console.log(oldValue);
+    console.log(newValue);
+    state.currentPage = 1;
+    state.results = [];
+    getCharacters();
+})
 
 onMounted(() => {
-    state.results = data.results;
+    getCharacters();
 }
 )
 </script>
 
 <template>
+    <input type="search" placeholder="Search" v-model="state.searchKey">
     <div>
         <CharacterArticleVue v-for="data in state.results" :data="data" />
     </div>
+    <button @click="getCharacters" v-if="state.totalPages >= state.currentPage">LOAD MORE</button>
+    <div v-else>NO MORE CHARACTERS</div>
 </template>
 
 <style scoped>
-div{
+input {
+    margin-left: 25px;
+    margin-bottom: 30px;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+button {
+    margin: 0 auto;
+    padding: 10px;
+}
+
+div {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 80px;
+    padding: 0 30px;
 }
 </style>

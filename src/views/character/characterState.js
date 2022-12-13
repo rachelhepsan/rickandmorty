@@ -1,5 +1,8 @@
 import { reactive } from "vue";
 
 export default reactive({
-    results: []
-})
+  results: [],
+  totalPages: 0,
+  currentPage: 1,
+  searchKey:''
+});

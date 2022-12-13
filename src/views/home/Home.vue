@@ -1,39 +1,42 @@
 <script setup>
-import CharacterArticleVue from '@/components/CharacterArticle.vue';
-import data from '@/data.json';
-import { onMounted } from 'vue';
-import state from './homeState.js';
+import CharacterArticleVue from "@/components/CharacterArticle.vue";
+import { onMounted } from "vue";
+import state from "./homeState.js";
+import { getCharacters } from "./utils";
 
 onMounted(() => {
-    state.results = data.results;
-}
-)
+  getCharacters();
+});
 </script>
 
 <template>
-    <div>
-        <CharacterArticleVue v-for="data in state.results.slice(0,4)" :data="data" />
-    </div>
-    <RouterLink :to="{ name: 'character' }"><button>SHOW ALL</button></RouterLink>
+  <div>
+    <CharacterArticleVue
+      v-for="data in state.results.slice(0, 4)"
+      :data="data"
+    />
+  </div>
+  <RouterLink :to="{ name: 'character' }"><button>SHOW ALL</button></RouterLink>
 </template>
 
 <style scoped>
-div{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 80px;
+div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  padding: 0 30px;
 }
 
-a{
-    margin: 0 auto;
+a {
+  margin: 0 auto;
 }
 
-button{
-    padding: 10px;
+button {
+  padding: 10px;
 }
 
 button:hover {
-    background-color: yellow;
+  background-color: yellow;
 }
 </style>

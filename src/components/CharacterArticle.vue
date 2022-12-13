@@ -36,12 +36,12 @@ const characterRoute = { name: 'character-details', params: { characterId: data.
 <style scoped>
 article {
     display: flex;
-    width: 600px;
-    height: 22npm0px;
+    /* width: 48%; */
+    width: calc((100% - 25px)/2);
     overflow: hidden;
     background: rgb(60, 62, 68);
     border-radius: 0.5rem;
-    margin: 0.75rem;
+    margin-bottom: 1.5rem;
     color: #fff;
 }
 
