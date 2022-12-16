@@ -2,7 +2,7 @@
 import CharacterArticleVue from "@/components/CharacterArticle.vue";
 import { onMounted } from "vue";
 import state from "./homeState.js";
-import { getCharacters } from "./utils";
+import { getCharacters } from "./services";
 
 onMounted(() => {
   getCharacters();

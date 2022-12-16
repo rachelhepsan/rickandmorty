@@ -24,7 +24,7 @@ onMounted(() => {
         <CharacterArticleVue v-for="data in state.results" :data="data" />
     </div>
     <button @click="getCharacters" v-if="state.totalPages >= state.currentPage">LOAD MORE</button>
-    <div v-else>NO MORE CHARACTERS</div>
+    <div class="msg-container" v-else>NO MORE CHARACTERS</div>
 </template>
 
 <style scoped>
@@ -46,5 +46,12 @@ div {
     justify-content: space-between;
     margin-bottom: 80px;
     padding: 0 30px;
+}
+
+.msg-container{
+    color: #000;
+    background-color: #fff;
+    padding: 15px;
+    margin: 0 auto;
 }
 </style>

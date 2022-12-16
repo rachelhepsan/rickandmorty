@@ -24,10 +24,10 @@ const characterRoute = { name: 'character-details', params: { characterId: data.
                 <p class="status"> <span class="alive-status"></span> {{ data.status }} - {{ data.species }}</p>
             </div>
             <div>
-                <p class="place-seen"><span class="grey-text">Last Seen:</span>Mr. Goldenfold's dream</p>
+                <p class="place-seen"><span class="grey-text">Last Seen:</span>  Mr. Goldenfold's dream</p>
             </div>
             <div>
-                <p><span class="grey-text">First Seen:</span>Lawnmower Dog</p>
+                <p><span class="grey-text">First Seen:</span>  Lawnmower Dog</p>
             </div>
         </div>
     </article>
@@ -36,7 +36,6 @@ const characterRoute = { name: 'character-details', params: { characterId: data.
 <style scoped>
 article {
     display: flex;
-    /* width: 48%; */
     width: calc((100% - 25px)/2);
     overflow: hidden;
     background: rgb(60, 62, 68);
@@ -45,7 +44,7 @@ article {
     color: #fff;
 }
 
-a{
+a {
     text-decoration: none;
     color: #fff;
 }
@@ -58,7 +57,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     color: #fff;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
 }
 
 h2 {
@@ -82,7 +81,7 @@ h2 {
 }
 
 p {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .place-seen {
