@@ -11,9 +11,11 @@ img {
 }
 
 ul {
-    margin-top: 15px;
+    margin-top: 45px;
     list-style: none;
     color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 
