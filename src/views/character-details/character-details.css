@@ -5,6 +5,10 @@
     margin-bottom: 50px;
 }
 
+.loading{
+    color:#fff;
+}
+
 img {
     border-radius: 10px;
     height: 300px;

@@ -4,5 +4,6 @@ export default reactive({
   results: [],
   totalPages: 0,
   currentPage: 1,
-  searchKey:''
+  searchKey:'',
+  loading: false
 });

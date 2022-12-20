@@ -5,8 +5,6 @@ import state from './characterState';
 import { getCharacters } from './characterServices';
 
 watch(() => state.searchKey, (newValue, oldValue) => {
-    console.log(oldValue);
-    console.log(newValue);
     state.currentPage = 1;
     state.results = [];
     getCharacters();
@@ -20,11 +18,15 @@ onMounted(() => {
 
 <template>
     <input type="search" placeholder="Search" v-model="state.searchKey">
-    <div>
-        <CharacterArticleVue v-for="data in state.results" :data="data" />
-    </div>
-    <button @click="getCharacters" v-if="state.totalPages >= state.currentPage">LOAD MORE</button>
-    <div class="msg-container" v-else>NO MORE CHARACTERS</div>
+    <div v-if="state.searchKey.length && !state.results.length">No results found</div>
+    <template v-else>
+        <div>
+            <CharacterArticleVue v-for="data in state.results" :data="data" />
+        </div>
+        <button @click="getCharacters" v-if="state.totalPages >= state.currentPage" :disabled="state.loading">LOAD
+            MORE</button>
+        <div class="msg-container" v-else>NO MORE CHARACTERS</div>
+    </template>
 </template>
 
 <style scoped>
@@ -48,7 +50,7 @@ div {
     padding: 0 30px;
 }
 
-.msg-container{
+.msg-container {
     color: #000;
     background-color: #fff;
     padding: 15px;

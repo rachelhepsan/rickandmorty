@@ -1,13 +1,12 @@
 <script setup>
-import { computed } from '@vue/reactivity'; 
 
 const props = defineProps({
-    data: Object
+    data: {
+        type: Object
+    }
 })
 
-const data = computed(() => props.data);
-
-const characterRoute = { name: 'character-details', params: { characterId: data.value.id } }
+const characterRoute = { name: 'character-details', params: { characterId: props.data.id } }
 
 </script>
 
@@ -24,10 +23,10 @@ const characterRoute = { name: 'character-details', params: { characterId: data.
                 <p class="status"> <span class="alive-status"></span> {{ data.status }} - {{ data.species }}</p>
             </div>
             <div>
-                <p class="place-seen"><span class="grey-text">Last Seen:</span>  Mr. Goldenfold's dream</p>
+                <p class="place-seen"><span class="grey-text">Last Seen:</span> Mr. Goldenfold's dream</p>
             </div>
             <div>
-                <p><span class="grey-text">First Seen:</span>  Lawnmower Dog</p>
+                <p><span class="grey-text">First Seen:</span> Lawnmower Dog</p>
             </div>
         </div>
     </article>

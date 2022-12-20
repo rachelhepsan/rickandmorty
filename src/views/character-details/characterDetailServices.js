@@ -1,12 +1,12 @@
 import axios from "axios";
 import state from "./characterDetailState.js";
 
-export const getCharacterDetail = async () => {
+export const getCharacterDetail = async (characterId) => {
+  state.loading = true;
   const response = await axios.get(
-    `https://rickandmortyapi.com/api/character/${state.characterId}`
+    `https://rickandmortyapi.com/api/character/${characterId}`
   );
+  state.loading = false;
   state.results = response.data;
-  state.characterId = response.data.id;
 };
 
-getCharacterDetail();
