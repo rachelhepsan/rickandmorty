@@ -10,26 +10,34 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
+  <div class="character-container">
     <CharacterArticleVue
       v-for="data in state.results.slice(0, 4)"
       :data="data"
     />
   </div>
-  <RouterLink :to="{ name: 'character' }"><button>SHOW ALL</button></RouterLink>
+  <div class="button-container">
+    <RouterLink :to="{ name: 'character' }"><button>SHOW ALL</button></RouterLink>
+  </div>
 </template>
 
 <style scoped>
-div {
+.character-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 80px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   padding: 0 30px;
 }
 
 a {
   margin: 0 auto;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
 }
 
 button {

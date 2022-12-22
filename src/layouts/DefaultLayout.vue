@@ -21,35 +21,12 @@ header {
     padding: 2rem;
 }
 
-input {
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 25px;
-    margin-left: 20px;
-}
-
-main {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 80px;
-    margin-bottom: 50px;
-}
-
-div {
-    display: flex;
-    justify-content: center;
-}
-
-button {
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #fff;
-}
-
 footer {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 30px;
     color: #fff;
+    bottom: 0;
+    position: relative;
 }
 </style>

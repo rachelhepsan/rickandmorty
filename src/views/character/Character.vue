@@ -4,7 +4,7 @@ import { onMounted, watch } from 'vue';
 import state from './characterState';
 import { getCharacters } from './characterServices';
 
-watch(() => state.searchKey, (newValue, oldValue) => {
+watch(() => state.searchKey, () => {
     state.currentPage = 1;
     state.results = [];
     getCharacters();
@@ -18,31 +18,36 @@ onMounted(() => {
 
 <template>
     <input type="search" placeholder="Search" v-model="state.searchKey">
-    <div v-if="state.searchKey.length && !state.results.length">No results found</div>
+    <div class="msg-container" v-if="state.searchKey.length && !state.results.length">NO RESULTS FOUND</div>
     <template v-else>
-        <div>
+        <div class="character-container">
             <CharacterArticleVue v-for="data in state.results" :data="data" />
         </div>
-        <button @click="getCharacters" v-if="state.totalPages >= state.currentPage" :disabled="state.loading">LOAD
+        <div class="button-container" v-if="state.totalPages >= state.currentPage">
+            <button @click="getCharacters" :disabled="state.loading">LOAD
             MORE</button>
+        </div>
         <div class="msg-container" v-else>NO MORE CHARACTERS</div>
     </template>
 </template>
 
 <style scoped>
 input {
-    margin-left: 25px;
-    margin-bottom: 30px;
+    margin: 25px;
     padding: 8px;
     border-radius: 10px;
 }
 
-button {
-    margin: 0 auto;
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+button{
     padding: 10px;
 }
 
-div {
+.character-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -53,6 +58,8 @@ div {
 .msg-container {
     color: #000;
     background-color: #fff;
+    width: 20vw;
+    text-align: center;
     padding: 15px;
     margin: 0 auto;
 }
